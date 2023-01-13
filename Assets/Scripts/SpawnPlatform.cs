@@ -14,7 +14,7 @@ public class SpawnPlatform : MonoBehaviour {
     player = GameObject.FindGameObjectWithTag("Player");
 
     foreach(GameObject platform in platforms) {
-      GameObject obj = Instantiate(platform, new Vector2(distance, -3f), transform.rotation);
+      GameObject obj = Instantiate(platform, new Vector2(distance, -4.5f), transform.rotation);
       currentPlatforms.Add(obj.transform);
       distance += 30;
     }
