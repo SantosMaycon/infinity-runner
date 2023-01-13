@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour {
   [SerializeField] private float speed;
   [SerializeField] private float jumpFoarce;
+  [SerializeField] private Animator animator;
   private Rigidbody2D rigidbody2d;
+  private bool isJumping;
   // Start is called before the first frame update
   void Start() {
     rigidbody2d = GetComponent<Rigidbody2D>();
@@ -13,12 +15,21 @@ public class Player : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if (Input.GetKeyDown(KeyCode.Space)) {
+    if (Input.GetKeyDown(KeyCode.Space) && !isJumping) {
       rigidbody2d.AddForce(Vector2.up * jumpFoarce, ForceMode2D.Impulse);
+      animator.SetBool("isJump", true);
+      isJumping = true;
     }
   }
 
   void FixedUpdate() {
     rigidbody2d.velocity = new Vector2(speed, rigidbody2d.velocity.y);
+  }
+
+  void OnCollisionEnter2D(Collision2D other) {
+    if (other.gameObject.layer == 8) {
+      animator.SetBool("isJump", false);
+      isJumping = false;
+    }  
   }
 }
