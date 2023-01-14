@@ -28,7 +28,10 @@ public class SpawnEnemyPlatform : MonoBehaviour {
   }
 
   public void respawnEnemy() {
-    enemy.SetActive(true);
-    enemy.transform.position = points[Random.Range(0, points.Count)].position;
+    if (enemy) {
+      enemy.transform.position = points[Random.Range(0, points.Count)].position;
+    } else {
+      createEnemy();
+    }
   }
 }
