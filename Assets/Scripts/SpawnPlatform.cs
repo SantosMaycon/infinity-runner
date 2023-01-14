@@ -40,5 +40,6 @@ public class SpawnPlatform : MonoBehaviour {
   public void recycle(GameObject platform) {
     platform.transform.position = new Vector2(distance, platform.transform.position.y);
     distance += 30f;
+    platform.GetComponentInChildren<SpawnEnemyPlatform>()?.respawnEnemy();
   }
 }
