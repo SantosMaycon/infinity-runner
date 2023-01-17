@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2088681976039492926}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xAxis: -5.5
   yAxis: 8
+  damage: 2

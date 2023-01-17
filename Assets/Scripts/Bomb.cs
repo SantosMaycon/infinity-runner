@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour {
   [SerializeField] private float xAxis;
   [SerializeField] private float yAxis;
+  [SerializeField] private int damage;
   private Rigidbody2D rigidbody2d;
   // Start is called before the first frame update
   void Start() {
@@ -15,4 +16,8 @@ public class Bomb : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {}
+
+  public int onHit() {
+    return damage;
+  }
 }

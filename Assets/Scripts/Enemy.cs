@@ -14,17 +14,13 @@ public class Enemy : MonoBehaviour {
     }
   }
 
+  public virtual int onHit() {
+    return damage;
+  }
+
   protected virtual void OnTriggerEnter2D(Collider2D other) {
     if (other.CompareTag("Bullet")) {
       Projectile projectile = other.GetComponent<Projectile>();
-      projectile.createExplose();
-      ApplyDamage(projectile.damage);
-    }
-  }
-
-  protected virtual void OnCollisionEnter2D(Collision2D other) {
-    if (other.gameObject.CompareTag("Bullet")) {
-      Projectile projectile = other.gameObject.GetComponent<Projectile>();
       projectile.createExplose();
       ApplyDamage(projectile.damage);
     }
